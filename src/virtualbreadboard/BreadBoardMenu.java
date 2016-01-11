@@ -205,7 +205,7 @@ public class BreadBoardMenu extends JFrame{
                 if (ledP == true) {
                     ledP = false;
                     componentList.add(0, new LED(0));
-                    ((LED) componentList.get(0)).setBounds(snapper.snapToX(e.getX()), snapper.snapToY(e.getY()), 100, 100);
+                    ((LED) componentList.get(0)).setBounds(snapper.snapToX(e.getX()) + 1, snapper.snapToY(e.getY()) - 11, 100, 100);
                     area.removeAll();
                     repaint();
                     redrawAll();
@@ -231,7 +231,7 @@ public class BreadBoardMenu extends JFrame{
                 } else if (chipP == true){
                     chipP = false;
                     componentList.add(0, new ANDChip());
-                    ((ANDChip) componentList.get(0)).setLocation(snapper.snapToX(e.getX()), snapper.snapToY(e.getY()));
+                    ((ANDChip) componentList.get(0)).setLocation(snapper.cSnapToX(e.getX()), snapper.cSnapToY());
                     area.removeAll();
                     repaint();
                     redrawAll();
@@ -261,6 +261,7 @@ public class BreadBoardMenu extends JFrame{
                 area.add(componentList.get(i));
             }
             setup();
+            System.out.println("hello");
         }
 
         
@@ -326,7 +327,6 @@ public class BreadBoardMenu extends JFrame{
         }
         
     };
-  
 
     private Dimension getDim() {
         if (board == null) {
